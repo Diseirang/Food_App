@@ -33,4 +33,34 @@ const DUMMY_CATEGORIES = const [
     title: 'Cambodia',
     color: Colors.white,
   ),
+  Category(
+    id: 'c7',
+    title: 'Italian',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c8',
+    title: 'Harmburgars',
+    color: Colors.red,
+  ),
+  Category(
+    id: 'c9',
+    title: 'German',
+    color: Colors.blue,
+  ),
+  Category(
+    id: 'c10',
+    title: 'Italian',
+    color: Colors.yellow,
+  ),
+  Category(
+    id: 'c11',
+    title: 'Light & Lovely',
+    color: Colors.pink,
+  ),
+  Category(
+    id: 'c12',
+    title: 'Cambodia',
+    color: Colors.white,
+  ),
 ];
