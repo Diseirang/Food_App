@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../dummy_data.dart';
+import '../const_data/dummy_data.dart';
 import '../widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -10,6 +10,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Yang Meals'),
+        centerTitle: true,
       ),
       body: GridView(
         padding: const EdgeInsets.all(25),

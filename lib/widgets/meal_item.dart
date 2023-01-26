@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/myConstant.dart';
 import '../models/meal.dart';
 import '../screens/meal_detail_screen.dart';
 
@@ -80,18 +79,24 @@ class MealItems extends StatelessWidget {
                 Positioned(
                   bottom: 20,
                   right: 10,
-                  child: Container(
-                    width: 300,
-                    color: Colors.black54,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
                     ),
-                    child: Text(
-                      title,
-                      style: defaultTextStyle,
-                      softWrap: true,
-                      overflow: TextOverflow.fade,
+                    child: Container(
+                      width: 300,
+                      color: Colors.black54,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: Text(
+                        title,
+                        style: Theme.of(context).textTheme.subtitle2,
+                        softWrap: true,
+                        overflow: TextOverflow.fade,
+                      ),
                     ),
                   ),
                 ),

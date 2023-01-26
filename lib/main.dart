@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'YangMeals',
+      title: 'viTüal½yxúM',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
@@ -32,6 +32,17 @@ class MyApp extends StatelessWidget {
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              subtitle2: const TextStyle(
+                fontSize: 20,
+                fontFamily: 'RobotoCondensed',
+                color: Colors.white,
+              ),
+              headline1: const TextStyle(
+                fontSize: 36,
+                fontFamily: 'LimonR1',
+                color: Colors.white,
               ),
             ),
       ),
@@ -41,6 +52,15 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => const CategoriesScreen(),
         CategoryMealsScreen.routeName: (ctx) => const CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
+      },
+
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
+
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+            builder: ((context) => const CategoriesScreen()));
       },
     );
   }

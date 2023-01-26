@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/meal_item.dart';
-import '../dummy_data.dart';
+import '../const_data/dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   static const routeName = '/category-meals';
@@ -25,7 +25,11 @@ class CategoryMealsScreen extends StatelessWidget {
     ).toList();
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle!),
+        title: Text(
+          categoryTitle!,
+          style: Theme.of(context).textTheme.headline1,
+        ),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
