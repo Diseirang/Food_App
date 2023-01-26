@@ -1,11 +1,34 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class MealItems extends StatelessWidget {
+  const MealItems({super.key});
+  void selectMeal() {}
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return InkWell(
+      onTap: () => selectMeal,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 4,
+        margin: const EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
