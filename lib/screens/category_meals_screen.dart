@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/models/meal.dart';
-import 'package:food_app/widgets/meal_item.dart';
+
+import '../widgets/meal_item.dart';
 import '../dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
@@ -18,25 +18,28 @@ class CategoryMealsScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
-    final categoryMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(categoryId);
-    }).toList();
+    final categoryMeals = DUMMY_MEALS.where(
+      (meal) {
+        return meal.categories.contains(categoryId);
+      },
+    ).toList();
     return Scaffold(
-        appBar: AppBar(
-          title: Text(categoryTitle!),
-        ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Text(
-                  categoryMeals[index].title,
-                ),
-                MealItems()
-              ],
-            );
-          },
-          itemCount: categoryMeals.length,
-        ));
+      appBar: AppBar(
+        title: Text(categoryTitle!),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return MealItems(
+            id: categoryMeals[index].id,
+            title: categoryMeals[index].title,
+            imageUrl: categoryMeals[index].imageUrl,
+            duration: categoryMeals[index].duration,
+            complexity: categoryMeals[index].complexity,
+            affordability: categoryMeals[index].affordability,
+          );
+        },
+        itemCount: categoryMeals.length,
+      ),
+    );
   }
 }
