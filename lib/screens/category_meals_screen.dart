@@ -27,7 +27,7 @@ class CategoryMealsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           categoryTitle!,
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headline3,
         ),
         centerTitle: true,
       ),

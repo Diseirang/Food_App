@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './screens/filters_screen.dart';
+import './screens/tabs_screen.dart';
 import './screens/categories_screen.dart';
 import './screens/meal_detail_screen.dart';
 import 'screens/category_meals_screen.dart';
@@ -15,11 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'viTüal½yxúM',
+      title: 'eBook High School',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.purple,
         accentColor: Colors.amber,
-        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: Color.fromARGB(255, 252, 255, 229),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: const TextStyle(
@@ -40,8 +42,18 @@ class MyApp extends StatelessWidget {
                 color: Colors.white,
               ),
               headline1: const TextStyle(
-                fontSize: 36,
+                fontSize: 32,
                 fontFamily: 'LimonR1',
+                color: Colors.white,
+              ),
+              headline2: const TextStyle(
+                fontSize: 40,
+                fontFamily: 'LimonR1',
+                color: Colors.white,
+              ),
+              headline3: const TextStyle(
+                fontSize: 22,
+                fontFamily: 'KhmerMool',
                 color: Colors.white,
               ),
             ),
@@ -49,9 +61,10 @@ class MyApp extends StatelessWidget {
       // home: const CategoriesScreen(),
 
       routes: {
-        '/': (ctx) => const CategoriesScreen(),
+        '/': (ctx) => const TabScreen(),
         CategoryMealsScreen.routeName: (ctx) => const CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
+        FilterScreen.routeName: (ctx) => const FilterScreen(),
       },
 
       // onGenerateRoute: (settings) {

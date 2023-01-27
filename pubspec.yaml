@@ -96,6 +96,10 @@ flutter:
       fonts:
         - asset: assets/fonts/LIMONR1_.ttf
           weight: 700
+    - family: KhmerMool
+      fonts:
+        - asset: assets/fonts/Khmer Mool.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

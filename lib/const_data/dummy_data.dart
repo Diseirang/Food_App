@@ -1,60 +1,61 @@
 import 'package:flutter/material.dart';
-import '/models/category.dart';
+
+import '../models/category.dart';
 import '../models/meal.dart';
 
-// ignore: unnecessary_const
-const DUMMY_CATEGORIES = const [
+const DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
-    title: 'GkSrsa®sþExµr',
-    color: Color.fromARGB(255, 66, 155, 251),
+    title: 'Italian',
+    color: Colors.purple,
   ),
   Category(
     id: 'c2',
-    title: 'KNitviTüa',
-    color: Color.fromARGB(255, 152, 54, 244),
+    title: 'Quick & Easy',
+    color: Colors.red,
   ),
   Category(
     id: 'c3',
-    title: 'rUbviTüa',
+    title: 'Hamburgers',
     color: Colors.orange,
   ),
   Category(
     id: 'c4',
-    title: 'KImIviTüa',
+    title: 'German',
     color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'CIv³viTüa',
+    title: 'Light & Lovely',
     color: Colors.blue,
   ),
   Category(
     id: 'c6',
-    title: 'EpndIviTüa',
+    title: 'Exotic',
     color: Colors.green,
   ),
   Category(
     id: 'c7',
-    title: 'PUmiviTüa',
+    title: 'Breakfast',
     color: Colors.lightBlue,
   ),
   Category(
     id: 'c8',
-    title: 'RbvtþiviTüa',
+    title: 'Asian',
     color: Colors.lightGreen,
   ),
   Category(
     id: 'c9',
-    title: 'sIlFm’-BlrdæviC¢a',
+    title: 'French',
     color: Colors.pink,
   ),
   Category(
     id: 'c10',
-    title: '',
+    title: 'Summer',
     color: Colors.teal,
   ),
 ];
+
 const DUMMY_MEALS = [
   Meal(
     id: 'm1',
