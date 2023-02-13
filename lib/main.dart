@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.white,
               ),
               headline3: const TextStyle(
-                fontSize: 22,
+                fontSize: 18,
                 fontFamily: 'KhmerMool',
                 color: Colors.white,
               ),
