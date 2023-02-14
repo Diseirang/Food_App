@@ -49,10 +49,8 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'LimonR1',
                 color: Colors.white,
               ),
- 
               displaySmall: const TextStyle(
                 fontSize: 22,
- 
                 fontFamily: 'KhmerMool',
                 color: Colors.white,
               ),
