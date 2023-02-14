@@ -19,44 +19,44 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'eBook High School',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.amber,
         canvasColor: const Color.fromARGB(255, 252, 255, 229),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: const TextStyle(
+              bodyLarge: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              bodyText2: const TextStyle(
+              bodyMedium: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              subtitle1: const TextStyle(
+              titleMedium: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
-              subtitle2: const TextStyle(
+              titleSmall: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
                 color: Colors.white,
               ),
-              headline1: const TextStyle(
+              displayLarge: const TextStyle(
                 fontSize: 32,
                 fontFamily: 'LimonR1',
                 color: Colors.white,
               ),
-              headline2: const TextStyle(
+              displayMedium: const TextStyle(
                 fontSize: 40,
                 fontFamily: 'LimonR1',
                 color: Colors.white,
               ),
-              headline3: const TextStyle(
+              displaySmall: const TextStyle(
                 fontSize: 22,
                 fontFamily: 'KhmerMool',
                 color: Colors.white,
               ),
             ),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+            .copyWith(secondary: Colors.amber),
       ),
       // home: const CategoriesScreen(),
 
