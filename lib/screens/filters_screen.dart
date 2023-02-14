@@ -19,16 +19,28 @@ class _FilterScreenState extends State<FilterScreen> {
     String title,
     String description,
     bool currentValue,
+<<<<<<< HEAD
     Function(bool) updateValue,
+=======
+    Function updateValue,
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
   ) {
     return SwitchListTile(
       title: Text(
         title,
+<<<<<<< HEAD
         style: Theme.of(context).textTheme.titleLarge,
       ),
       subtitle: Text(description),
       value: currentValue,
       onChanged: updateValue,
+=======
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+      subtitle: Text(description),
+      value: currentValue,
+      onChanged: updateValue(),
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
     );
   }
 
@@ -68,10 +80,17 @@ class _FilterScreenState extends State<FilterScreen> {
                   'Lactose-free',
                   'Only include lactose-free meals.',
                   _lactoseFree,
+<<<<<<< HEAD
                   (newValue) {
                     setState(
                       () {
                         _lactoseFree = newValue;
+=======
+                  () {
+                    setState(
+                      () {
+                        _lactoseFree;
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
                       },
                     );
                   },
@@ -80,10 +99,17 @@ class _FilterScreenState extends State<FilterScreen> {
                   'Vegetarian',
                   'Only include vegetarian meals.',
                   _vegetarian,
+<<<<<<< HEAD
                   (newValue) {
                     setState(
                       () {
                         _vegetarian = newValue;
+=======
+                  () {
+                    setState(
+                      () {
+                        _vegetarian;
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
                       },
                     );
                   },
@@ -92,10 +118,17 @@ class _FilterScreenState extends State<FilterScreen> {
                   'Vegan',
                   'Only include vegan meals.',
                   _vegan,
+<<<<<<< HEAD
                   (newValue) {
                     setState(
                       () {
                         _vegan = newValue;
+=======
+                  () {
+                    setState(
+                      () {
+                        _vegan;
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
                       },
                     );
                   },

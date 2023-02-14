@@ -30,7 +30,11 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
           ModalRoute.of(context)!.settings.arguments as Map<String, String>;
       categoryTitle = routeArgs['title']!;
       final categoryId = routeArgs['id'];
+<<<<<<< HEAD
       displayedMeals = dummymeals.where(
+=======
+      displayedMeals = DUMMY_MEALS.where(
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
         (meal) {
           return meal.categories.contains(categoryId);
         },
@@ -53,7 +57,11 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       appBar: AppBar(
         title: Text(
           categoryTitle,
+<<<<<<< HEAD
           style: Theme.of(context).textTheme.titleSmall,
+=======
+          style: Theme.of(context).textTheme.headline3,
+>>>>>>> b43f388d3c7c4a31334398b8ee6ca353f6b938dc
         ),
         centerTitle: true,
       ),
