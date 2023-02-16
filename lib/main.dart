@@ -12,25 +12,40 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<String, bool> _filters = {
+  Map<String, bool> filters = {
     'gluten': false,
     'vegan': false,
     'lactose': false,
     'vegetarian': false,
   };
 
-  List<Meal> _availableMeals = dummymeals;
+  List<Meal> availableMeals = dummymeals;
 
-  void _setFilters(Map<String, bool> filterData) {
+  void setFilters(Map<String, bool> filterData) {
     setState(() {
-      _filters = filterData;
+      filters = filterData;
+      availableMeals = dummymeals.where((meal) {
+        if (filters['gluten'] && !meal.isGlutenFree) {
+          return false;
+        }
+        if (filters['lactose'] && !meal.isLactoseFree) {
+          return false;
+        }
+        if (filters['vegan'] && !meal.isVegan) {
+          return false;
+        }
+        if (filters['vegetatian'] && !meal.isVegetarian) {
+          return false;
+        }
+        return true;
+      }).toList();
     });
   }
 
@@ -84,13 +99,15 @@ class _MyAppState extends State<MyApp> {
 
       routes: {
         '/': (ctx) => const TabScreen(),
-        CategoryMealsScreen.routeName: (ctx) => const CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (ctx) =>
+            CategoryMealsScreen(availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        FilterScreen.routeName: (ctx) => FilterScreen(_setFilters),
+        FilterScreen.routeName: (ctx) => FilterScreen(setFilters),
       },
 
+      // ignore: missing_return
       onGenerateRoute: (settings) {
-        print(settings.arguments);
+        //print(settings.arguments);
       },
 
       onUnknownRoute: (settings) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+  const MainDrawer({Key key}) : super(key: key);
 
   Widget buildListTile(String title, IconData icon, VoidCallback tapHandler) {
     return ListTile(

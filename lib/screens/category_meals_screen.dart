@@ -7,7 +7,8 @@ import '../const_data/dummy_data.dart';
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
 
-  const CategoryMealsScreen({super.key});
+  const CategoryMealsScreen(List<Meal> availableMeals, {Key key})
+      : super(key: key);
 
   @override
   State<CategoryMealsScreen> createState() => _CategoryMealsScreenState();
@@ -15,8 +16,8 @@ class CategoryMealsScreen extends StatefulWidget {
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   // final String categoryId;
-  late String categoryTitle;
-  late List<Meal> displayedMeals;
+  String categoryTitle;
+  List<Meal> displayedMeals;
   var _loadedInitData = false;
   @override
   void initState() {
@@ -27,8 +28,8 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   void didChangeDependencies() {
     if (!_loadedInitData) {
       final routeArgs =
-          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-      categoryTitle = routeArgs['title']!;
+          ModalRoute.of(context).settings.arguments as Map<String, String>;
+      categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
       displayedMeals = dummymeals.where(
         (meal) {

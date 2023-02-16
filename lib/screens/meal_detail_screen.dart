@@ -4,6 +4,8 @@ import '../const_data/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-details';
+
+  const MealDetailScreen({Key key}) : super(key: key);
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
@@ -29,11 +31,9 @@ class MealDetailScreen extends StatelessWidget {
     );
   }
 
-  const MealDetailScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final mealId = ModalRoute.of(context)!.settings.arguments as String;
+    final mealId = ModalRoute.of(context).settings.arguments as String;
     final selectedMeal = dummymeals.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
       appBar: AppBar(
