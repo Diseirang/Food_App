@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        FilterScreen.routeName: (ctx) => FilterScreen(setFilters),
+        FilterScreen.routeName: (ctx) => FilterScreen(filters,setFilters),
       },
 
       // ignore: missing_return
