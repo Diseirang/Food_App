@@ -1,18 +1,44 @@
 import 'package:flutter/material.dart';
+import './const_data/dummy_data.dart';
 import './screens/filters_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/categories_screen.dart';
 import './screens/meal_detail_screen.dart';
+import 'models/meal.dart';
 import 'screens/category_meals_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filters = {
+    'gluten': false,
+    'vegan': false,
+    'lactose': false,
+    'vegetarian': false,
+  };
+
+  List<Meal> _availableMeals = dummymeals;
+
+  void _setFilters(Map<String, bool> filterData) {
+    setState(() {
+      _filters = filterData;
+      _availableMeals = dummymeals.where((meal)  {
+        if (_filters['gluten'] && !meal.isGlutenFree) {
+        return false;
+        }
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,21 +85,22 @@ class MyApp extends StatelessWidget {
             .copyWith(secondary: Colors.amber),
       ),
       // home: const CategoriesScreen(),
+      initialRoute: '/', // default is '/'
 
       routes: {
         '/': (ctx) => const TabScreen(),
-        CategoryMealsScreen.routeName: (ctx) => const CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (ctx) =>
+            const CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        FilterScreen.routeName: (ctx) => const FilterScreen(),
+        FilterScreen.routeName: (ctx) => FilterScreen(_setFilters),
       },
 
-      // onGenerateRoute: (settings) {
-      //   print(settings.arguments);
-      // },
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
 
       onUnknownRoute: (settings) {
-        return MaterialPageRoute(
-            builder: ((context) => const CategoriesScreen()));
+        return MaterialPageRoute(builder: ((ctx) => const CategoriesScreen()));
       },
     );
   }
