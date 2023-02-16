@@ -31,11 +31,6 @@ class _MyAppState extends State<MyApp> {
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
-      _availableMeals = dummymeals.where((meal)  {
-        if (_filters['gluten'] && !meal.isGlutenFree) {
-        return false;
-        }
-      }).toList();
     });
   }
 
@@ -89,8 +84,7 @@ class _MyAppState extends State<MyApp> {
 
       routes: {
         '/': (ctx) => const TabScreen(),
-        CategoryMealsScreen.routeName: (ctx) =>
-            const CategoryMealsScreen(_availableMeals),
+        CategoryMealsScreen.routeName: (ctx) => const CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
         FilterScreen.routeName: (ctx) => FilterScreen(_setFilters),
       },
