@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         if (filters['vegan'] && !meal.isVegan) {
           return false;
         }
-        if (filters['vegetatian'] && !meal.isVegetarian) {
+        if (filters['vegetarian'] && !meal.isVegetarian) {
           return false;
         }
         return true;
@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(availableMeals),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
-        FilterScreen.routeName: (ctx) => FilterScreen(filters,setFilters),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(filters, setFilters),
       },
 
       // ignore: missing_return

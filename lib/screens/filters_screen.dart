@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import '../widgets/main_drawer.dart';
 
-class FilterScreen extends StatefulWidget {
+class FiltersScreen extends StatefulWidget {
   static const routeName = '/filters';
   final Function saveFilters;
   final Map<String, bool> currentFilters;
-  const FilterScreen(Map<String, bool> filters, void Function(Map<String, bool> filterData) setFilters, {Key key, this.currentFilters, this.saveFilters})
+  const FiltersScreen(this.currentFilters, this.saveFilters, {Key key})
       : super(key: key);
 
   @override
-  State<FilterScreen> createState() => _FilterScreenState();
+  State<FiltersScreen> createState() => _FiltersScreenState();
 }
 
-class _FilterScreenState extends State<FilterScreen> {
+class _FiltersScreenState extends State<FiltersScreen> {
   bool _glutenFree = false;
   bool _vegetarian = false;
   bool _vegan = false;
@@ -23,7 +23,7 @@ class _FilterScreenState extends State<FilterScreen> {
     _glutenFree = widget.currentFilters['gluten'];
     _vegan = widget.currentFilters['vegan'];
     _lactoseFree = widget.currentFilters['lactose'];
-    _vegetarian = widget.currentFilters['vegeterian'];
+    _vegetarian = widget.currentFilters['vegetarian'];
 
     super.initState();
   }
@@ -32,12 +32,12 @@ class _FilterScreenState extends State<FilterScreen> {
     String title,
     String description,
     bool currentValue,
-    Function(bool) updateValue,
+    Function updateValue,
   ) {
     return SwitchListTile(
       title: Text(
         title,
-        style: Theme.of(context).textTheme.titleLarge,
+        //style: Theme.of(context).textTheme.titleLarge,
       ),
       subtitle: Text(description),
       value: currentValue,
@@ -50,19 +50,11 @@ class _FilterScreenState extends State<FilterScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Your Filter'),
+        title: const Text('Your Filters'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.save),
-            onPressed: () {
-              final selectedFilter = {
-                'gluten': _glutenFree,
-                'vegan': _vegan,
-                'lactose': _lactoseFree,
-                'vegetarian': _vegetarian,
-              };
-              widget.saveFilters(selectedFilter);
-            },
+            icon: const Icon(Icons.save),
+            onPressed: onSaveFilters,
           ),
         ],
       ),
@@ -87,6 +79,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     setState(
                       () {
                         _glutenFree = newValue;
+                        onSaveFilters();
                       },
                     );
                   },
@@ -99,6 +92,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     setState(
                       () {
                         _lactoseFree = newValue;
+                        onSaveFilters();
                       },
                     );
                   },
@@ -111,6 +105,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     setState(
                       () {
                         _vegetarian = newValue;
+                        onSaveFilters();
                       },
                     );
                   },
@@ -123,6 +118,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     setState(
                       () {
                         _vegan = newValue;
+                        onSaveFilters();
                       },
                     );
                   },
@@ -133,5 +129,15 @@ class _FilterScreenState extends State<FilterScreen> {
         ],
       ),
     );
+  }
+
+  void onSaveFilters() {
+    final selectedFilter = {
+      'gluten': _glutenFree,
+      'lactose': _lactoseFree,
+      'vegan': _vegan,
+      'vegetarian': _vegetarian,
+    };
+    widget.saveFilters(selectedFilter);
   }
 }
