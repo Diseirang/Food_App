@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import '../const_data/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-details';
   final Function toggleFavorite;
+  final Function isMealFavorite;
 
-  const MealDetailScreen(this.toggleFavorite, {Key key}) : super(key: key);
+  const MealDetailScreen(this.toggleFavorite, this.isMealFavorite, {Key key})
+      : super(key: key);
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
@@ -95,10 +98,27 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
-        onPressed: toggleFavorite,
-        child: const Icon(Icons.favorite),
+        onPressed: () => toggleFavorite(mealId),
+        child: Icon(isMealFavorite(mealId) ? Icons.star : Icons.star_border),
       ),
+
+      // floatingActionButton: SpeedDial(
+      //   animatedIcon: AnimatedIcons.menu_close,
+      //   children: [
+      //     SpeedDialChild(
+      //       child:
+      //           Icon(isMealFavorite(mealId) ? Icons.star : Icons.star_border),
+      //       onTap: () => toggleFavorite(mealId),
+      //     ),
+      //     SpeedDialChild(
+      //       child:
+      //           Icon(isMealFavorite(mealId) ? Icons.star : Icons.star_border),
+      //       onTap: () => toggleFavorite(mealId),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

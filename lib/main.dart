@@ -119,7 +119,7 @@ class _MyAppState extends State<MyApp> {
         '/': (ctx) => TabScreen(favoriteMeal),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(availableMeals),
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(toggleFavorite),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(toggleFavorite,isMealFavorite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(filters, setFilters),
       },
 
@@ -131,6 +131,7 @@ class _MyAppState extends State<MyApp> {
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: ((ctx) => const CategoriesScreen()));
       },
+      
     );
   }
 }
